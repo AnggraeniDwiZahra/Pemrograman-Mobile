@@ -1,4 +1,4 @@
-package com.example.laundysean
+package com.example.laundrysean
 
 data class Pelanggan(
     val nama: String,
