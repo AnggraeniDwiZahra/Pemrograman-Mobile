@@ -1,4 +1,10 @@
 <resources>
-<style name="Theme.CalculatorTip" parent="Theme.MaterialComponents.DayNight.DarkActionBar">...
-</style>
+    <style name="Theme.CalculatorTip.XML" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/purple_500</item>
+        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorOnPrimary">@color/white</item>
+    </style>
+
+    <style name="Theme.CalculatorTip.Compose" parent="android:Theme.Material.Light.NoActionBar">
+    </style>
 </resources>
