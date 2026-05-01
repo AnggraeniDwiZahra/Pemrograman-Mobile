@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Modul 3</string>
+    <string name="featured_hotels">Featured Hotels</string>
+    <string name="all_hotels">All Hotels</string>
+    <string name="price_per_night">Price per Night</string>
+    <string name="facilities_desc">Facilities &amp; Description</string>
+    <string name="hotel_description">Enjoy an extraordinary stay at %1$s. This hotel offers the best comfort in the heart of Bandung with easy access to various tourist destinations.</string>
+    <string name="back_button">← Back</string>
+    <string name="language_selector">Select Language</string>
+</resources>

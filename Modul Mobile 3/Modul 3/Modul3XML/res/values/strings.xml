@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Modul 3</string>
+    <string name="featured_hotels">Hotel Unggulan</string>
+    <string name="all_hotels">Semua Hotel</string>
+    <string name="price_per_night">Harga per Malam</string>
+    <string name="facilities_desc">Fasilitas &amp; Deskripsi</string>
+    <string name="hotel_description">Nikmati pengalaman menginap luar biasa di %1$s. Hotel ini menawarkan kenyamanan terbaik di jantung kota Bandung dengan akses mudah ke berbagai destinasi wisata.</string>
+    <string name="back_button">← Kembali</string>
+    <string name="language_selector">Pilih Bahasa</string>
+</resources>
