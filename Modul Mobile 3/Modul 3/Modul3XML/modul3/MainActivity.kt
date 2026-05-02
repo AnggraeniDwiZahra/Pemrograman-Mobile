@@ -7,12 +7,13 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
-import com.google.android.material.button.MaterialButton
+import com.example.modul3.databinding.ActivityMainBinding
 import java.util.Locale
 
 class MainActivityXml : AppCompatActivity() {
+
+    private lateinit var binding: ActivityMainBinding
 
     private val hotelList = listOf(
         Hotel("Kollektiv Hotel", "⭐⭐⭐", "Sukajadi, Bandung", "Rp423.649", listOf(R.drawable.kollektiv)),
@@ -24,50 +25,27 @@ class MainActivityXml : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
 
-        val btnLanguage: android.widget.TextView = findViewById(R.id.btn_language)
-        btnLanguage.setOnClickListener {
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        binding.btnLanguage.setOnClickListener {
             showLanguageDialog()
         }
 
-        val rvHotels: RecyclerView = findViewById(R.id.rv_hotels)
-        rvHotels.layoutManager = LinearLayoutManager(this)
-        rvHotels.adapter = HotelAdapter(hotelList)
+        binding.rvHotels.layoutManager = LinearLayoutManager(this)
+        binding.rvHotels.adapter = HotelAdapter(hotelList)
 
-        val viewPagerHeader: ViewPager2 = findViewById(R.id.viewPagerHeader)
-        viewPagerHeader.adapter = ImageAdapter(hotelList, true)
-        viewPagerHeader.orientation = ViewPager2.ORIENTATION_HORIZONTAL
+        binding.viewPagerHeader.adapter = ImageAdapter(hotelList, true)
+        binding.viewPagerHeader.orientation = ViewPager2.ORIENTATION_HORIZONTAL
 
-        val dotsContainer = findViewById<LinearLayout>(R.id.dotsContainer)
-        val hotelListSize = 5
+        setupDots(5)
+        updateDots(0, binding.dotsContainer)
 
-        fun setupDots(size: Int) {
-            dotsContainer.removeAllViews()
-            val dots = arrayOfNulls<ImageView>(size)
-            for (i in 0 until size) {
-                dots[i] = ImageView(this)
-                dots[i]?.setImageResource(R.drawable.tab_selector)
-                val params = LinearLayout.LayoutParams(25, 25)
-                params.setMargins(8, 0, 8, 0)
-                dotsContainer.addView(dots[i], params)
-            }
-        }
-
-        fun updateDots(position: Int) {
-            for (i in 0 until dotsContainer.childCount) {
-                val dot = dotsContainer.getChildAt(i) as ImageView
-                dot.isSelected = (i == position)
-            }
-        }
-
-        setupDots(hotelListSize)
-        updateDots(0)
-
-        viewPagerHeader.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
+        binding.viewPagerHeader.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
             override fun onPageSelected(position: Int) {
                 super.onPageSelected(position)
-                updateDots(position)
+                updateDots(position, binding.dotsContainer)
             }
         })
     }
@@ -91,8 +69,26 @@ class MainActivityXml : AppCompatActivity() {
         Locale.setDefault(locale)
         val config = Configuration()
         config.setLocale(locale)
-
         baseContext.resources.updateConfiguration(config, baseContext.resources.displayMetrics)
         recreate()
+    }
+
+    private fun setupDots(size: Int) {
+        binding.dotsContainer.removeAllViews()
+        val dots = arrayOfNulls<ImageView>(size)
+        for (i in 0 until size) {
+            dots[i] = ImageView(this)
+            dots[i]?.setImageResource(R.drawable.tab_selector)
+            val params = LinearLayout.LayoutParams(25, 25)
+            params.setMargins(8, 0, 8, 0)
+            binding.dotsContainer.addView(dots[i], params)
+        }
+    }
+
+    private fun updateDots(position: Int, container: LinearLayout) {
+        for (i in 0 until container.childCount) {
+            val dot = container.getChildAt(i) as ImageView
+            dot.isSelected = (i == position)
+        }
     }
 }
