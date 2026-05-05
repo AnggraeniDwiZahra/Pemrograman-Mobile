@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.fragment.HomeFragment"
+        android:label="Home"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_homeFragment_to_detailPostFragment"
+            app:destination="@id/detailPostFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.example.fragment.SearchFragment"
+        android:label="Search"
+        tools:layout="@layout/fragment_search" />
+
+    <fragment
+        android:id="@+id/postFragment"
+        android:name="com.example.fragment.PostFragment"
+        android:label="Postingan"
+        tools:layout="@layout/fragment_post">
+        <action
+            android:id="@+id/action_postFragment_to_createPostFragment"
+            app:destination="@id/createPostFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/notificationFragment"
+        android:name="com.example.fragment.NotificationFragment"
+        android:label="Notifikasi"
+        tools:layout="@layout/fragment_notification" />
+
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.fragment.ProfileFragment"
+        android:label="Profil"
+        tools:layout="@layout/fragment_profile">
+
+        <action
+            android:id="@+id/action_profileFragment_to_settingFragment"
+            app:destination="@id/settingsFragment" />
+
+        <action
+            android:id="@+id/action_profileFragment_to_editProfileFragment"
+            app:destination="@id/editProfileFragment" />
+
+        <action
+            android:id="@+id/action_profileFragment_to_followersFragment"
+            app:destination="@id/followersFragment" />
+
+        <action
+            android:id="@+id/action_profileFragment_to_followingFragment"
+            app:destination="@id/followingFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/editProfileFragment"
+        android:name="com.example.fragment.EditProfileFragment"
+        android:label="Edit Profil"
+        tools:layout="@layout/fragment_edit_profile" />
+
+    <fragment
+        android:id="@+id/followersFragment"
+        android:name="com.example.fragment.FollowersFragment"
+        android:label="Pengikut"
+        tools:layout="@layout/fragment_followers" />
+
+    <fragment
+        android:id="@+id/followingFragment"
+        android:name="com.example.fragment.FollowingFragment"
+        android:label="Mengikuti"
+        tools:layout="@layout/fragment_following" />
+
+
+    <fragment
+        android:id="@+id/detailPostFragment"
+        android:name="com.example.fragment.DetailPostFragment"
+        android:label="Detail"
+        tools:layout="@layout/fragment_detail_post">
+        <argument
+            android:name="postTitle"
+            app:argType="string" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/createPostFragment"
+        android:name="com.example.fragment.CreatePostFragment"
+        android:label="Buat Postingan Baru"
+        tools:layout="@layout/fragment_create_post" />
+
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.example.fragment.SettingsFragment"
+        android:label="Pengaturan"
+        tools:layout="@layout/fragment_settings" />
+
+</navigation>
