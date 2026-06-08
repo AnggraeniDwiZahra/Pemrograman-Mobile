@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Modul 5</string>
+    <string name="featured_movies">Featured Movies</string>
+    <string name="all_movies">All Movies</string>
+    <string name="popular">Popular</string>
+    <string name="release_date">Release</string>
+    <string name="trailer">Trailer</string>
+    <string name="detail">Detail</string>
+    <string name="overview">Overview</string>
+    <string name="back_button">← Back</string>
+    <string name="language_selector">Select Language</string>
+</resources>
